@@ -2,8 +2,6 @@
 
 一个「文本 → 结果」的流式 AI 应用 Demo，用于展示 AI 协作开发的完整闭环：**流式调用 · Token 成本 · 工具调用 · 上下文管理**。基于 Next.js（App Router）构建，默认以**纯前端离线演示**运行，无需任何密钥，打开即见效果。
 
-> 线上演示（已部署）：https://d00482f1d96249899da9e28c75c02f79.bj9.agentos-app.net
-
 ## 功能特性
 
 - **流式响应**：前端 `runMock` 逐 token 生成（打字机效果），无需服务端
@@ -13,12 +11,6 @@
 - **离线兜底**：无密钥时回退内置 `runMock`，保证评审人打开即见效果
 - **Premium UI**：玻璃拟态、磁吸按钮、暗/亮/系统三态主题（平滑切换，无闪烁）
 - **状态完备**：加载骨架、空态引导、错误态重试、触感反馈
-
-## 线上演示
-
-- **CloudStudio 静态托管**（当前）：https://d00482f1d96249899da9e28c75c02f79.bj9.agentos-app.net
-  - 纯前端静态导出（`output: 'export'`），流式 / 工具调用 / Token 面板全部在浏览器端运行。
-- 如需**接入真实大模型**并启用服务端密钥代理，请部署到支持 Serverless 的平台（如 Vercel），详见文末「接入真实模型」。
 
 ## 本地运行
 
@@ -70,10 +62,9 @@ lib/tools.ts / lib/context.ts / lib/token.ts
 
 ## 部署步骤（DNS / HTTPS）
 
-**CloudStudio（即时预览，已上线）**
+**任意静态托管（即时预览）**
 1. `npm run build` 生成静态产物 `out/`；
-2. 上传 `out/`（含 `index.html`）至 CloudStudio，平台启静态服务并返回 HTTPS 链接；
-3. 当前演示地址：https://d00482f1d96249899da9e28c75c02f79.bj9.agentos-app.net
+2. 上传 `out/`（含 `index.html`）至静态托管平台（CloudStudio / GitHub Pages / OSS 等），平台启静态服务并返回 HTTPS 链接。
 
 **Vercel（自动 HTTPS，适合接入真实模型）**
 1. `npm run build` 本地验证；
